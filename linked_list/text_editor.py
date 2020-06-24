@@ -1,4 +1,4 @@
-MAX = 500000
+MAX = 1000005
 _data = [-1] * MAX
 pre = [-1] * MAX
 nxt = [-1] * MAX
