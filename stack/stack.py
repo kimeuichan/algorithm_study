@@ -1,3 +1,4 @@
+
 MAX = 10006
 _data = [0] * MAX
 pos = 0
@@ -43,18 +44,17 @@ def empty():
 n = int(input())
 
 while n > 0:
-    cmd = input()
-
-    if cmd.startswith("push"):
-        _, number = cmd.split()
-        push(number)
-    elif cmd == "top":
+    string = input()
+    cmd = string.split()
+    if cmd[0] == 'push':
+        push(cmd[1])
+    elif cmd[0] == "top":
         print(top())
-    elif cmd == "empty":
+    elif cmd[0] == "empty":
         print(empty())
-    elif cmd == "pop":
+    elif cmd[0] == "pop":
         print(pop())
-    elif cmd == "size":
+    elif cmd[0] == "size":
         print(size())
 
     n -= 1

@@ -33,9 +33,16 @@ def top():
     return _data[pos-1]
 
 
+def empty():
+    if pos == 0:
+        return 1
+
+    return 0
+
+
 if __name__ == '__main__':
     push(1)  # 1
-    print(top())  # 1
+    print(top())  # 1`
     print(pop())  # 1
 
     push(2)  # 2
