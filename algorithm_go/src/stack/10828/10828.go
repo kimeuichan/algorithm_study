@@ -53,8 +53,8 @@ func main(){
 				fmt.Fprintln(w, 0);
 			}
 		}
-		w.Flush()
 	}
+	w.Flush()
 
 
 }
