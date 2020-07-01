@@ -1,17 +1,27 @@
 package queue
 
-type Queue struct {
+const MAX = 100005
+
+type queue struct {
 	items []int
 	head int
 	tail int
 }
 
-func (q *Queue) Push(val int) {
+func Queue() *queue{
+	return &queue{
+		items: make([]int, MAX),
+		head:  0,
+		tail:  0,
+	}
+}
+
+func (q *queue) Push(val int) {
 	q.items[q.tail] = val
 	q.tail++
 }
 
-func (q *Queue) Pop() int {
+func (q *queue) Pop() int {
 	if q.head == q.tail{
 		return -1
 	}
@@ -22,7 +32,7 @@ func (q *Queue) Pop() int {
 	return val
 }
 
-func (q *Queue) Front() int {
+func (q *queue) Front() int {
 	if q.Empty() == 1{
 		return -1
 	}
@@ -30,7 +40,7 @@ func (q *Queue) Front() int {
 	return q.items[q.head]
 }
 
-func (q *Queue) Back() int {
+func (q *queue) Back() int {
 	if q.Empty() == 1{
 		return -1
 	}
@@ -38,11 +48,11 @@ func (q *Queue) Back() int {
 	return q.items[q.tail - 1]
 }
 
-func (q *Queue) Size() int {
-	return len(q.items)
+func (q *queue) Size() int {
+	return q.tail - q.head
 }
 
-func (q *Queue) Empty() int {
+func (q *queue) Empty() int {
 	if q.head == q.tail{
 		return 1
 	}
