@@ -42,8 +42,8 @@ func (q *deque) PopBack() int {
 		return -1
 	}
 
-	val := q.items[q.tail]
 	q.tail--
+	val := q.items[q.tail]
 
 	return val
 }
