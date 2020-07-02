@@ -26,7 +26,7 @@ func (s *stack) Push (val int) {
 }
 
 func (s *stack) Pop () int {
-	if s.Empty() == 0 {
+	if s.Empty() == 1 {
 		return -1
 	}
 
@@ -39,6 +39,13 @@ func (s *stack) Empty () int {
 		return 1
 	}
 	return 0
+}
+
+func (s *stack) Top () int {
+	if s.Empty() == 1 {
+		return -1
+	}
+	return s.items[s.top - 1]
 }
 
 func (s *stack) Size () int {

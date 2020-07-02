@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"stack"
 	"strconv"
 	"strings"
 )
@@ -12,10 +13,10 @@ func main(){
 	r := bufio.NewReader(os.Stdin)
 	w := bufio.NewWriter(os.Stdout)
 
-	stack := []int{}
-
 	var n int
 	var cmd string
+
+	s := stack.Stack(100)
 
 	fmt.Fscanln(r, &n)
 
@@ -28,30 +29,15 @@ func main(){
 
 		if cmd == "push"{
 			number, _ := strconv.Atoi(parts[1])
-			stack = append(stack, number)
+			s.Push(number)
 		} else if cmd == "pop" {
-			if len(stack) == 0 {
-				fmt.Fprintln(w, -1)
-			} else {
-				temp := stack[len(stack)-1]
-				stack = stack[:len(stack) - 1]
-				fmt.Fprintln(w, temp)
-			}
-
+			fmt.Fprintln(w, s.Pop())
 		} else if cmd == "size" {
-			fmt.Fprintln(w, len(stack))
+			fmt.Fprintln(w, s.Size())
 		} else if cmd == "top" {
-			if len(stack) == 0 {
-				fmt.Println(-1)
-			} else {
-				fmt.Fprintln(w, stack[len(stack) - 1])
-			}
+			fmt.Fprintln(w, s.Top())
 		} else if cmd == "empty" {
-			if len(stack) == 0{
-				fmt.Fprintln(w, 1);
-			} else {
-				fmt.Fprintln(w, 0);
-			}
+			fmt.Fprintln(w, s.Empty());
 		}
 	}
 	w.Flush()
