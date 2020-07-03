@@ -1,6 +1,6 @@
 package stack
 
-const MAX = 10005
+const MAX = 100000
 
 type stack struct{
 	items [] int
