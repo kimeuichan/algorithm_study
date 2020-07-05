@@ -7,6 +7,9 @@ import (
 
 // 참고
 // https://suriisurii.tistory.com/53
+// 이분은 다른분들과 다르게 아예 수식화 해서 생각한듯 하다.
+// 수학식으로 만들어서 풀어버림.
+// 미리 가중치를 만들어서 더해 버림.
 
 
 func main() {
@@ -27,7 +30,7 @@ func main() {
 			m++
 			st.Push(int(char))
 			mul *= 3
-			if i+1 < len(line) && line[i+1] == ']'{
+			if i+1 < len(line) && line[i+1] == ']'{ // 바로 닫히는 브라켓인지 확인
 				answer += mul
 			}
 		} else if char == '('{
