@@ -3,25 +3,25 @@ package queue
 const MAX = 100005
 
 type queue struct {
-	items []int
+	items []interface{}
 	head int
 	tail int
 }
 
 func Queue() *queue{
 	return &queue{
-		items: make([]int, MAX),
+		items: make([]interface{}, MAX),
 		head:  0,
 		tail:  0,
 	}
 }
 
-func (q *queue) Push(val int) {
+func (q *queue) Push(val interface{}) {
 	q.items[q.tail] = val
 	q.tail++
 }
 
-func (q *queue) Pop() int {
+func (q *queue) Pop() interface{} {
 	if q.head == q.tail{
 		return -1
 	}
@@ -32,7 +32,7 @@ func (q *queue) Pop() int {
 	return val
 }
 
-func (q *queue) Front() int {
+func (q *queue) Front() interface{} {
 	if q.Empty() == 1{
 		return -1
 	}
@@ -40,7 +40,7 @@ func (q *queue) Front() int {
 	return q.items[q.head]
 }
 
-func (q *queue) Back() int {
+func (q *queue) Back() interface{} {
 	if q.Empty() == 1{
 		return -1
 	}
