@@ -12,11 +12,11 @@ type Pair struct {
 	y int
 }
 
-var board[10][10]int
+var board[505][505]int
 var vis[505][505]bool
 
-var dy = [4]int{1, 0, -1, 0}
-var dx = [4]int{0, 1, 0, -1}
+var dx = [4]int{1, 0, -1, 0}
+var dy = [4]int{0, 1, 0, -1}
 
 func main() {
 	w := bufio.NewWriter(os.Stdout)
