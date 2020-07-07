@@ -1,6 +1,6 @@
 package queue
 
-const MAX = 100005
+const MAX = 250005
 
 type queue struct {
 	items []interface{}
