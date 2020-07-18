@@ -3,7 +3,7 @@ package stack
 const MAX = 100000
 
 type stack struct{
-	items [] int
+	items [] interface{}
 	top int
 }
 
@@ -15,17 +15,17 @@ func Stack(itemLen int) *stack {
 	}
 
 	return &stack{
-		items: make([]int, len),
+		items: make([]interface{}, len),
 		top: 0,
 	}
 }
 
-func (s *stack) Push (val int) {
+func (s *stack) Push (val interface{}) {
 	s.items[s.top] = val
 	s.top++
 }
 
-func (s *stack) Pop () int {
+func (s *stack) Pop () interface{} {
 	if s.Empty() == 1 {
 		return -1
 	}
@@ -41,7 +41,7 @@ func (s *stack) Empty () int {
 	return 0
 }
 
-func (s *stack) Top () int {
+func (s *stack) Top () interface{} {
 	if s.Empty() == 1 {
 		return -1
 	}
